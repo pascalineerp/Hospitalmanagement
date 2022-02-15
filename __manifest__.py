@@ -21,29 +21,38 @@
 #############################################################################
 
 {
-    "name": "Dark Mode Backend Theme",
-    "description": """Minimalist and elegant backend theme for Odoo 15, Backend Theme, Theme""",
-    "summary": "Dark Mode Backend Theme V15 is an attractive theme for backend",
+    "name": "Vista Backend Theme V15",
+    "description": """Minimalist and elegant backend theme for Odoo 14, Backend Theme, Theme""",
+    "summary": "Vista Backend Theme V15 is an attractive theme for backend",
     "category": "Themes/Backend",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'maintainer': 'Cybrosys Techno Solutions',
     'website': "https://www.cybrosys.com",
     "depends": ['base', 'web', 'mail'],
     "data": [
+        'security/ir.model.access.csv',
+        'views/icons.xml',
         'views/layout.xml',
+        'views/theme.xml',
+        'views/assets.xml',
+        'data/theme_data.xml',
     ],
     'assets': {
         'web.assets_backend': {
-            '/dark_mode_backend/static/src/scss/theme_accent.scss',
-            '/dark_mode_backend/static/src/scss/datetimepicker.scss',
-            '/dark_mode_backend/static/src/scss/theme.scss',
-            'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet',
+            '/vista_backend_theme/static/src/scss/theme.scss',
+            '/vista_backend_theme/static/src/js/systray.js',
+            '/vista_backend_theme/static/src/js/load.js',
+            '/vista_backend_theme/static/src/js/chrome/sidebar_menu.js',
         },
         'web.assets_frontend': {
-            '/dark_mode_backend/static/src/scss/login.scss',
-            'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet',
+            '/vista_backend_theme/static/src/scss/login.scss',
+            '/vista_backend_theme/static/src/scss/login.scss',
+        },
+        'web.assets_qweb': {
+            '/vista_backend_theme/static/src/xml/systray.xml',
+            '/vista_backend_theme/static/src/xml/top_bar.xml',
         },
     },
     'images': [
@@ -51,6 +60,8 @@
         'static/description/theme_screenshot.png',
     ],
     'license': 'LGPL-3',
+    'pre_init_hook': 'test_pre_init_hook',
+    'post_init_hook': 'test_post_init_hook',
     'installable': True,
     'application': False,
     'auto_install': False,
